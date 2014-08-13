@@ -1,0 +1,5 @@
+= simple_form_for([category,product, review], :html => {:class => 'form-horizontal' }, wrapper: :horizontal_form) do |f|
+  = f.error_notification
+  = f.input :content
+  = f.input :rating, collection: 1..5
+  .pull-right= f.button :submit

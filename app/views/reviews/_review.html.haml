@@ -1,0 +1,8 @@
+.panel.panel-default
+  .panel-heading #{reviews.size} Reviews
+  %ul.list-group
+  - reviews.each do |review|
+    %li.list-group-item
+      = review.author
+      %span.badge= review.rating
+      %p= review.content
