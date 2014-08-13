@@ -12,8 +12,4 @@ class User < ActiveRecord::Base
   def admin?
     false
   end
-
-  def authorized?
-    true
-  end
 end
