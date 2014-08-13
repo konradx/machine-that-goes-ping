@@ -18,6 +18,10 @@ gem 'uglifier'
 
 gem 'therubyracer', platforms: :ruby
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'spring'
 end
@@ -37,3 +41,4 @@ gem 'jquery-rails'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'simple_enum'
+ruby "2.1.2"
