@@ -143,7 +143,6 @@ describe ProductsController do
 
       describe "with invalid params" do
         it "expose a newly created but unsaved product" do
-
           Product.any_instance.stub(:save).and_return(false)
           post :create, { product: { "title" => "invalid value" }, category_id: category.to_param }, valid_session
           expect(controller.product).to be_a_new(Product)
@@ -158,8 +157,6 @@ describe ProductsController do
     end
 
     describe "PUT update" do
-      
-
       describe "with valid params" do
         it "updates the requested product" do
           product = Product.create! valid_attributes
@@ -199,12 +196,14 @@ describe ProductsController do
 
     describe "DELETE destroy" do
       it "destroys the requested product" do
+        product = Product.create! valid_attributes
         expect {
           delete :destroy, { id: product.to_param, category_id: category.to_param }, valid_session
         }.to change(Product, :count).by(-1)
       end
 
       it "redirects to the category page" do
+        product = Product.create! valid_attributes
         delete :destroy, { id: product.to_param, category_id: category.to_param }, valid_session
         response.should redirect_to(category_url(category))
       end
